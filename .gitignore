@@ -3,4 +3,5 @@
 /bin/phpunit
 /composer.lock
 /doc/
+/test/coverage.xml
 /vendor/
