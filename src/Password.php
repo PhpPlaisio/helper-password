@@ -1,5 +1,5 @@
 <?php
-//----------------------------------------------------------------------------------------------------------------------
+
 namespace SetBased\Abc\Helper;
 
 /**
@@ -23,6 +23,9 @@ class Password
    * @param string $password The password (given by the user).
    *
    * @return string The hashed password.
+   *
+   * @api
+   * @since 1.0.0
    */
   public static function passwordHash($password)
   {
@@ -45,6 +48,9 @@ class Password
    * @param string $hash The hash (stored in the system).
    *
    * @return bool True if and only if the password matches with the hash value.
+   *
+   * @api
+   * @since 1.0.0
    */
   public static function passwordNeedsRehash($hash)
   {
@@ -62,6 +68,9 @@ class Password
    * @param string $hash     The hash (stored in the system).
    *
    * @return bool True if and only if the password matches with the hash value.
+   *
+   * @api
+   * @since 1.0.0
    */
   public static function passwordVerify($password, $hash)
   {
