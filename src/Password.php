@@ -16,6 +16,7 @@ class Password
   public static $cost = 14;
 
   //--------------------------------------------------------------------------------------------------------------------
+
   /**
    * Returns a hashed password using PHP native [password_hash](http://php.net/manual/function.password-hash.php)
    * function.
@@ -62,7 +63,8 @@ class Password
   //--------------------------------------------------------------------------------------------------------------------
   /**
    * Verifies that a password matches a hash using PHP native
-   * [password_verify](http://php.net/manual/function.password-verify.php) function.
+   * [password_verify](http://php.net/manual/function.password-verify.php) function. However, when invoked with an empty
+   * password or empty hash will return false.
    *
    * @param string $password The password (given by the user).
    * @param string $hash     The hash (stored in the system).
@@ -72,8 +74,13 @@ class Password
    * @api
    * @since 1.0.0
    */
-  public static function passwordVerify(string $password, string $hash): bool
+  public static function passwordVerify(?string $password, ?string $hash): bool
   {
+    $password = $password ?? '';
+    $hash     = $hash ?? '';
+
+    if ($password==='' || $hash==='') return false;
+
     return password_verify($password, $hash);
   }
 
