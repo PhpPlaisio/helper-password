@@ -4,4 +4,5 @@
 /composer.lock
 /doc/
 /test/coverage.xml
+/test/report/
 /vendor/
