@@ -17,7 +17,6 @@ class Password
   public static $cost = 14;
 
   //--------------------------------------------------------------------------------------------------------------------
-
   /**
    * Returns a hashed password using PHP native [password_hash](http://php.net/manual/function.password-hash.php)
    * function.

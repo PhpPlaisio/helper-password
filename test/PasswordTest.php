@@ -15,7 +15,7 @@ class PasswordTest extends TestCase
   /**
    * Test cases for method passwordHash.
    */
-  public function testPasswordHash1()
+  public function testPasswordHash1(): void
   {
     $hash = Password::passwordHash('qwerty');
 
@@ -27,7 +27,7 @@ class PasswordTest extends TestCase
   /**
    * Test cases for method passwordHash with equal cost.
    */
-  public function testPasswordNeedsRehash1()
+  public function testPasswordNeedsRehash1(): void
   {
     $hash        = Password::passwordHash('qwerty');
     $needsRehash = Password::passwordNeedsRehash($hash);
@@ -39,7 +39,7 @@ class PasswordTest extends TestCase
   /**
    * Test cases for method passwordHash with higher cost.
    */
-  public function testPasswordNeedsRehash2()
+  public function testPasswordNeedsRehash2(): void
   {
     Password::$cost--;
     $hash = Password::passwordHash('qwerty');
@@ -54,7 +54,7 @@ class PasswordTest extends TestCase
   /**
    * Test cases for method passwordHash with lower cost.
    */
-  public function testPasswordNeedsRehash3()
+  public function testPasswordNeedsRehash3(): void
   {
     $hash = Password::passwordHash('qwerty');
 
@@ -68,7 +68,7 @@ class PasswordTest extends TestCase
   /**
    * Test cases for method passwordVerify.
    */
-  public function testPasswordVerify1()
+  public function testPasswordVerify1(): void
   {
     $hash = Password::passwordHash('qwerty');
     $pass = Password::passwordVerify('qwerty', $hash);
@@ -79,7 +79,7 @@ class PasswordTest extends TestCase
   /**
    * Test cases for method passwordVerify.
    */
-  public function testPasswordVerify2()
+  public function testPasswordVerify2(): void
   {
     $hash = Password::passwordHash('abc123');
     $pass = Password::passwordVerify('qwerty', $hash);
