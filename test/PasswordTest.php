@@ -1,9 +1,10 @@
 <?php
-//----------------------------------------------------------------------------------------------------------------------
-namespace SetBased\Abc\Helper\Test;
+declare(strict_types=1);
+
+namespace Plaisio\Helper\Test;
 
 use PHPUnit\Framework\TestCase;
-use SetBased\Abc\Helper\Password;
+use Plaisio\Helper\Password;
 
 /**
  * Test cases for class Password.

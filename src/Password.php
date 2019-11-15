@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace SetBased\Abc\Helper;
+namespace Plaisio\Helper;
 
 /**
  * A utility class for hashing and verifying passwords.

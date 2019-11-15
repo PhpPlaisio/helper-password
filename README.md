@@ -1,4 +1,4 @@
-# ABC-Framework: Password Helper
+# PhpPlaisio: Password Helper
 
 <table>
 <thead>
@@ -13,19 +13,19 @@
 <tbody>
 <tr>
 <td>
-<a href="https://gitter.im/SetBased/php-abc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge"><img src="https://badges.gitter.im/SetBased/php-abc.svg" alt="Gitter"/></a>
+<a href="https://gitter.im/PhpPlaisio/PhpPlaisio"><img src="https://badges.gitter.im/PhpPlaisio/PhpPlaisio.svg" alt="Gitter"/></a>
 </td>
 <td>
-<a href="https://packagist.org/packages/setbased/abc-helper-password"><img src="https://poser.pugx.org/setbased/abc-helper-password/license" alt="License"/></a>
+<a href="https://packagist.org/packages/plaisio/helper-password"><img src="https://poser.pugx.org/plaisio/helper-password/license" alt="License"/></a>
 </td>
 <td>
-<a href="https://packagist.org/packages/setbased/abc-helper-password"><img src="https://poser.pugx.org/setbased/abc-helper-password/v/stable" alt="Latest Stable Version"/></a>
+<a href="https://packagist.org/packages/plaisio/helper-password"><img src="https://poser.pugx.org/plaisio/helper-password/v/stable" alt="Latest Stable Version"/></a>
 </td>
-<td><a href="https://travis-ci.org/SetBased/php-abc-helper-password"><img src="https://travis-ci.org/SetBased/php-abc-helper-password.svg?branch=master" alt="Build Status"/></a><br/>
-<a href="https://scrutinizer-ci.com/g/SetBased/php-abc-helper-password/?branch=master"><img src="https://scrutinizer-ci.com/g/SetBased/php-abc-helper-password/badges/coverage.png?b=master" alt="Code Coverage"/></a><br/>
+<td><a href="https://travis-ci.org/PhpPlaisio/helper-password"><img src="https://travis-ci.org/PhpPlaisio/helper-password.svg?branch=master" alt="Build Status"/></a><br/>
+<a href="https://scrutinizer-ci.com/g/PhpPlaisio/helper-password/?branch=master"><img src="https://scrutinizer-ci.com/g/PhpPlaisio/helper-password/badges/coverage.png?b=master" alt="Code Coverage"/></a><br/>
 </td>
 <td>
-<a href="https://scrutinizer-ci.com/g/SetBased/php-abc-helper-password/?branch=master"><img src="https://scrutinizer-ci.com/g/SetBased/php-abc-helper-password/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
+<a href="https://scrutinizer-ci.com/g/PhpPlaisio/helper-password/?branch=master"><img src="https://scrutinizer-ci.com/g/PhpPlaisio/helper-password/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"/></a>
 </td>
 </tr>
 </tbody>
