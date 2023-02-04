@@ -14,7 +14,7 @@ class Password
    *
    * @var int
    */
-  public static $cost = 14;
+  public static int $cost = 14;
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -30,15 +30,7 @@ class Password
    */
   public static function passwordHash(string $password): string
   {
-    $options = ['cost' => self::$cost];
-
-    $hash = password_hash($password, PASSWORD_DEFAULT, $options);
-    if ($hash===false)
-    {
-      throw new \RuntimeException('Function password_hash failed');
-    }
-
-    return $hash;
+    return password_hash($password, PASSWORD_DEFAULT, ['cost' => self::$cost]);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -55,9 +47,7 @@ class Password
    */
   public static function passwordNeedsRehash(string $hash): bool
   {
-    $options = ['cost' => self::$cost];
-
-    return password_needs_rehash($hash, PASSWORD_DEFAULT, $options);
+    return password_needs_rehash($hash, PASSWORD_DEFAULT, ['cost' => self::$cost]);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -66,8 +56,8 @@ class Password
    * [password_verify](http://php.net/manual/function.password-verify.php) function. However, when invoked with an empty
    * password or empty hash will return false.
    *
-   * @param string $password The password (given by the user).
-   * @param string $hash     The hash (stored in the system).
+   * @param string|null $password The password (given by the user).
+   * @param string|null $hash     The hash (stored in the system).
    *
    * @return bool True if and only if the password matches with the hash value.
    *

@@ -1,9 +1,9 @@
 /.idea/
 /.phpunit.result.cache
-/bin/phing
-/bin/phpunit
+/bin/
 /composer.lock
-/doc/
+/custom.task.properties
+/custom.type.properties
 /test/coverage.xml
 /test/report/
 /vendor/
