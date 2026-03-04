@@ -10,8 +10,8 @@
     "php": ">=8.3"
   },
   "require-dev": {
-    "phing/phing": "^3.0.1",
-    "phpunit/phpunit": "^11.5.22"
+    "phing/phing": "^3.1.2",
+    "phpunit/phpunit": "^12.5.14"
   },
   "autoload": {
     "psr-4": {
