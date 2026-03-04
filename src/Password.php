@@ -10,11 +10,11 @@ class Password
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
-   * The algorithmic cost that should be used in [password_hash](http://php.net/manual/function.password-hash.php).
-   *
-   * @var int
+   * The options that used in [password_hash](http://php.net/manual/function.password-hash.php).
    */
-  public static int $cost = 14;
+  public static array $options = ['memory_cost' => 131072,
+                                  'time_cost'   => 10,
+                                  'threads'     => 1];
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
@@ -28,9 +28,9 @@ class Password
    * @api
    * @since 1.0.0
    */
-  public static function passwordHash(string $password): string
+  public static function passwordHash(#[\SensitiveParameter] string $password): string
   {
-    return password_hash($password, PASSWORD_DEFAULT, ['cost' => self::$cost]);
+    return password_hash($password, PASSWORD_ARGON2ID, self::$options);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ class Password
    */
   public static function passwordNeedsRehash(string $hash): bool
   {
-    return password_needs_rehash($hash, PASSWORD_DEFAULT, ['cost' => self::$cost]);
+    return password_needs_rehash($hash, PASSWORD_ARGON2ID, self::$options);
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -64,12 +64,15 @@ class Password
    * @api
    * @since 1.0.0
    */
-  public static function passwordVerify(?string $password, ?string $hash): bool
+  public static function passwordVerify(#[\SensitiveParameter] ?string $password, ?string $hash): bool
   {
     $password = $password ?? '';
     $hash     = $hash ?? '';
 
-    if ($password==='' || $hash==='') return false;
+    if ($password==='' || $hash==='')
+    {
+      return false;
+    }
 
     return password_verify($password, $hash);
   }

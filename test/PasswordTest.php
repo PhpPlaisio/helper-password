@@ -13,6 +13,25 @@ class PasswordTest extends TestCase
 {
   //--------------------------------------------------------------------------------------------------------------------
   /**
+   * Test the computation cost of password hashing.
+   */
+  public function testComputationCost(): void
+  {
+    $time1 = microtime(true);
+    $hash  = Password::passwordHash('qwerty123');
+    $time2 = microtime(true);
+    Password::passwordVerify('qwerty123', $hash);
+    $time3 = microtime(true);
+
+    echo sprintf("Duration Password::passwordHash:   %.3f seconds.\n", ($time2 - $time1));
+    echo sprintf("Duration Password::passwordVerify: %.3f seconds.\n", ($time3 - $time2));
+
+    self::assertGreaterThanOrEqual(0.25, $time2 - $time1);
+    self::assertGreaterThanOrEqual(0.25, $time3 - $time2);
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
    * Test cases for method passwordHash.
    */
   public function testPasswordHash1(): void
@@ -21,6 +40,7 @@ class PasswordTest extends TestCase
 
     self::assertTrue(is_string($hash));
     self::assertGreaterThanOrEqual(60, strlen($hash));
+    self::assertLessThanOrEqual(120, strlen($hash));
   }
 
   //--------------------------------------------------------------------------------------------------------------------
@@ -41,11 +61,11 @@ class PasswordTest extends TestCase
    */
   public function testPasswordNeedsRehash2(): void
   {
-    Password::$cost--;
-    $hash = Password::passwordHash('qwerty');
+    Password::$options['memory_cost'] = (int)(Password::$options['memory_cost'] / 2);
+    $hash                             = Password::passwordHash('qwerty');
 
-    Password::$cost++;
-    $needsRehash = Password::passwordNeedsRehash($hash);
+    Password::$options['memory_cost'] = (int)(2 * Password::$options['memory_cost']);
+    $needsRehash                      = Password::passwordNeedsRehash($hash);
 
     self::assertTrue($needsRehash);
   }
@@ -58,7 +78,7 @@ class PasswordTest extends TestCase
   {
     $hash = Password::passwordHash('qwerty');
 
-    Password::$cost--;
+    Password::$options['time_cost']--;
     $needsRehash = Password::passwordNeedsRehash($hash);
 
     self::assertTrue($needsRehash);
@@ -98,7 +118,6 @@ class PasswordTest extends TestCase
     $pass = Password::passwordVerify(null, null);
     self::assertFalse($pass);
   }
-
   //--------------------------------------------------------------------------------------------------------------------
 }
 
